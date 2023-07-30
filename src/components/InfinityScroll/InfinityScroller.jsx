@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Posts from '../Posts/Posts';
 import InfinityScrollTemplate from './InfinityScrollTemplate';
 
-export default function InfinityScroller({ api, limit }) {
+export default function InfinityScroller({ api, limit, Templete }) {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(0);
     const [key] = useState(0)
@@ -29,7 +28,7 @@ export default function InfinityScroller({ api, limit }) {
             <ol>
                 {
                     data?.map(post =>
-                        <Posts key={key + 1} post={post} />
+                        <Templete key={key + 1} data={post} />
                     )
                 }
             </ol>
